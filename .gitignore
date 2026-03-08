@@ -1,0 +1,81 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+*.ipynb
+
+# Data
+data/raw/*.csv
+data/processed/*.csv
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Models (large files)
+models/**/*.pkl
+models/**/*.h5
+models/**/*.joblib
+
+# MLflow
+mlruns/
+mlartifacts/
+
+# Logs
+*.log
+monitoring_logs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Outputs
+outputs/
+plots/
+*.png
+*.jpg
+!docs/images/*.png
+!docs/*.png
+
+# Optuna
+optuna_study.db
+.optuna/
+
+# Environment
+.env
+.env.local
+
+# Coverage
+.coverage
+htmlcov/
+
+# Pytest
+.pytest_cache/

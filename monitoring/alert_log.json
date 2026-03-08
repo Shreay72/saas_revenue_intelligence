@@ -1,0 +1,128 @@
+[
+  {
+    "timestamp": "2026-03-07T21:15:40.053518",
+    "severity": "INFO",
+    "source": "DataDriftDetector",
+    "message": "No significant data drift detected.",
+    "detail": {
+      "overall_status": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-03-07T21:15:40.053518",
+    "severity": "INFO",
+    "source": "ModelMonitor",
+    "message": "Model health is OK \u2014 no retraining needed",
+    "detail": {
+      "recommendation": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-03-08T08:44:03.668620",
+    "severity": "INFO",
+    "source": "DataDriftDetector",
+    "message": "No significant data drift detected.",
+    "detail": {
+      "overall_status": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-03-08T08:44:03.668620",
+    "severity": "INFO",
+    "source": "ModelMonitor",
+    "message": "Model health is OK \u2014 no retraining needed",
+    "detail": {
+      "recommendation": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-03-08T08:45:44.725981",
+    "severity": "INFO",
+    "source": "DataDriftDetector",
+    "message": "No significant data drift detected.",
+    "detail": {
+      "overall_status": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-03-08T08:45:44.725981",
+    "severity": "INFO",
+    "source": "ModelMonitor",
+    "message": "Model health is OK \u2014 no retraining needed",
+    "detail": {
+      "recommendation": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-03-08T08:57:21.631666",
+    "severity": "INFO",
+    "source": "DataDriftDetector",
+    "message": "No significant data drift detected.",
+    "detail": {
+      "overall_status": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-03-08T08:57:21.631666",
+    "severity": "INFO",
+    "source": "ModelMonitor",
+    "message": "Model health is OK \u2014 no retraining needed",
+    "detail": {
+      "recommendation": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-03-08T08:57:43.715224",
+    "severity": "INFO",
+    "source": "DataDriftDetector",
+    "message": "No significant data drift detected.",
+    "detail": {
+      "overall_status": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-03-08T08:57:43.715808",
+    "severity": "INFO",
+    "source": "ModelMonitor",
+    "message": "Model health is OK \u2014 no retraining needed",
+    "detail": {
+      "recommendation": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-03-08T08:58:04.519431",
+    "severity": "INFO",
+    "source": "DataDriftDetector",
+    "message": "No significant data drift detected.",
+    "detail": {
+      "overall_status": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-03-08T08:58:04.519431",
+    "severity": "INFO",
+    "source": "ModelMonitor",
+    "message": "Model health is OK \u2014 no retraining needed",
+    "detail": {
+      "recommendation": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-03-08T08:58:24.302103",
+    "severity": "INFO",
+    "source": "DataDriftDetector",
+    "message": "No significant data drift detected.",
+    "detail": {
+      "overall_status": "OK"
+    }
+  },
+  {
+    "timestamp": "2026-03-08T08:58:24.302103",
+    "severity": "INFO",
+    "source": "ModelMonitor",
+    "message": "Model health is OK \u2014 no retraining needed",
+    "detail": {
+      "recommendation": "OK"
+    }
+  }
+]

@@ -1,0 +1,58 @@
+# =============================================================================
+# SaaS Revenue Intelligence — Application Configuration
+# =============================================================================
+
+app:
+  name: "SaaS Revenue Intelligence"
+  version: "1.0.0"
+  environment: "development"   # development | staging | production
+  debug: false
+
+# -----------------------------------------------------------------------------
+# Paths
+# -----------------------------------------------------------------------------
+paths:
+  data_raw:        "data/raw"
+  data_processed:  "data/processed"
+  models:          "models"
+  logs:            "logs"
+  reports:         "reports"
+  monitoring:      "monitoring"
+
+  # Key files
+  account_features:     "data/processed/account_level_features.csv"
+  account_intelligence: "data/processed/account_intelligence.csv"
+  churn_model:          "models/churn/churn_model_v1.pkl"
+  revenue_model:        "models/revenue/revenue_model_v1.pkl"
+  clv_model:            "models/revenue/clv_model_v1.pkl"
+
+# -----------------------------------------------------------------------------
+# API
+# -----------------------------------------------------------------------------
+api:
+  host: "0.0.0.0"
+  port: 8000
+  reload: true
+  workers: 1
+  cache_ttl_seconds: 300       # 5 minutes
+
+# -----------------------------------------------------------------------------
+# Dashboard
+# -----------------------------------------------------------------------------
+dashboard:
+  host: "localhost"
+  port: 8501
+  api_url: "http://localhost:8000"
+  page_title: "SaaS Revenue Intelligence"
+  refresh_interval_seconds: 300
+
+# -----------------------------------------------------------------------------
+# Retraining
+# -----------------------------------------------------------------------------
+retrain:
+  trigger_auc_drop: 0.05       # retrain if AUC drops by 5%+
+  trigger_drift_score: 0.10    # retrain if drift score > 10%
+  min_new_accounts: 50         # minimum new accounts before retraining
+  backup_old_models: true
+  output_dir_churn:   "models/churn"
+  output_dir_revenue: "models/revenue"

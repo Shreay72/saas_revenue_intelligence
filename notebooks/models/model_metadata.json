@@ -1,0 +1,24 @@
+{
+  "model": "XGBoost",
+  "threshold": 0.1,
+  "roc_auc": 1.0,
+  "f1": 1.0,
+  "precision": 1.0,
+  "recall": 1.0,
+  "train_size": 400,
+  "test_size": 100,
+  "features_used": 48,
+  "top_10_features": [
+    "is_reactivation_0",
+    "support_risk_score",
+    "seats",
+    "tenure_months",
+    "subscription_count",
+    "upgrade_count",
+    "total_mrr",
+    "total_arr",
+    "total_usage",
+    "avg_usage_duration"
+  ],
+  "generated_at": "2026-03-08 11:09:08"
+}

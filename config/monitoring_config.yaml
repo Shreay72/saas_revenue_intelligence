@@ -1,0 +1,68 @@
+# =============================================================================
+# SaaS Revenue Intelligence — Monitoring Configuration
+# =============================================================================
+
+monitoring:
+  enabled: true
+  run_on_startup: false
+  schedule_hours: 24           # run drift check every 24 hours
+
+  # ── Baseline snapshot ────────────────────────────────────────────────
+  baseline:
+    path: "monitoring/baseline_snapshot.csv"
+    auto_create: true          # create from current data if missing
+
+  # ── Output ───────────────────────────────────────────────────────────
+  output:
+    drift_report:   "monitoring/drift_report.json"
+    model_report:   "monitoring/model_health_report.json"
+    alert_log:      "monitoring/alert_log.json"
+    reports_dir:    "reports"
+
+  # ── Features monitored for drift ─────────────────────────────────────
+  monitored_features:
+    - total_mrr
+    - churn_probability
+    - health_score
+    - tenure_months
+    - ticket_count
+    - engagement_score
+    - revenue_at_risk
+
+  # ── Drift thresholds ─────────────────────────────────────────────────
+  drift_thresholds:
+    warning:  0.05   # 5% mean shift → WARNING alert
+    critical: 0.10   # 10% mean shift → CRITICAL alert
+
+  # ── Model health thresholds ───────────────────────────────────────────
+  model_health:
+    min_auc:              0.75   # below this → retrain recommended
+    max_auc_drop:         0.05   # drop > 5% from baseline → alert
+    min_accounts:         100    # minimum accounts to run monitor
+    churn_rate_min:       0.05   # churn rate below 5% is suspicious
+    churn_rate_max:       0.95   # churn rate above 95% is suspicious
+
+# ── Alerts ───────────────────────────────────────────────────────────────
+alerts:
+  enabled: true
+  channels:
+    console: true
+    file:    true
+    email:   false             # set to true + configure smtp to enable
+
+  smtp:
+    host: "smtp.gmail.com"
+    port: 587
+    username: ""               # set via environment variable
+    password: ""               # set via environment variable
+    from_addr: "alerts@saas-intelligence.com"
+    to_addrs:
+      - "team@saas-intelligence.com"
+
+  severity_levels:
+    - INFO
+    - WARNING
+    - CRITICAL
+
+  # Alert suppression — avoid duplicate alerts within window
+  suppression_window_hours: 4

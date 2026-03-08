@@ -1,0 +1,65 @@
+{
+  "run_timestamp": "2026-03-08T08:58:24.298099",
+  "account_count": 500,
+  "checks": {
+    "churn_rate": {
+      "status": "OK",
+      "churn_rate": 0.704,
+      "reason": "Churn rate 70.4% within expected range"
+    },
+    "calibration": {
+      "status": "OK",
+      "mean_predicted_prob": 0.6964,
+      "actual_churn_rate": 0.704,
+      "calibration_error": 0.0076
+    },
+    "auc_estimate": {
+      "status": "OK",
+      "auc": 1.0,
+      "n_churned": 352,
+      "n_active": 148,
+      "reason": "AUC 1.0000 is healthy"
+    },
+    "portfolio_drift": {
+      "status": "OK",
+      "current_metrics": {
+        "total_accounts": 500,
+        "active_accounts": 148,
+        "churned_accounts": 352,
+        "churn_rate": 0.704,
+        "total_mrr": 11338747.0,
+        "total_arr": 136064964.0,
+        "avg_mrr": 22677.49,
+        "total_revenue_at_risk": 7915329.96
+      },
+      "baseline_metrics": {
+        "total_accounts": 500,
+        "active_accounts": 500,
+        "churned_accounts": 0,
+        "churn_rate": 0.0,
+        "total_mrr": 11338747.0,
+        "total_arr": 136064964.0,
+        "avg_mrr": 22677.49,
+        "total_revenue_at_risk": 7968352.23
+      },
+      "deltas": {
+        "total_mrr": {
+          "baseline": 11338747.0,
+          "current": 11338747.0,
+          "delta_pct": 0.0
+        },
+        "churn_rate": {
+          "baseline": 0.0,
+          "current": 0.704,
+          "delta_pct": 704000000.0
+        },
+        "avg_mrr": {
+          "baseline": 22677.49,
+          "current": 22677.49,
+          "delta_pct": 0.0
+        }
+      }
+    }
+  },
+  "recommendation": "OK"
+}

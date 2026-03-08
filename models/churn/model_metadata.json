@@ -1,0 +1,38 @@
+{
+  "model_name": "Logistic Regression",
+  "model_type": "CalibratedClassifierCV",
+  "train_date": "2026-03-08T08:59:37.519413",
+  "hyperparameter_tuning": {
+    "enabled": false,
+    "method": null,
+    "n_trials": null
+  },
+  "data_shape": {
+    "train": [
+      320,
+      758
+    ],
+    "validation": [
+      80,
+      758
+    ],
+    "test": [
+      100,
+      758
+    ]
+  },
+  "metrics": {
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1_score": 1.0,
+    "roc_auc": 1.0,
+    "optimal_threshold": 0.05,
+    "business_cost_total": 0.0,
+    "business_cost_per_prediction": 0.0
+  },
+  "business_assumptions": {
+    "cost_false_positive": 100.0,
+    "cost_false_negative": 5000.0
+  }
+}

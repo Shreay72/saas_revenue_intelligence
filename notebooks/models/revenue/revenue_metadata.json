@@ -1,0 +1,28 @@
+{
+  "model": "Gradient Boosting",
+  "target": "total_mrr",
+  "r2": 0.9399,
+  "mae": 2245.16,
+  "rmse": 3263.66,
+  "mape_pct": 20.79,
+  "train_size": 400,
+  "test_size": 100,
+  "features_used": 46,
+  "top_features": [
+    "seats",
+    "revenue_per_seat",
+    "subscription_count",
+    "engagement_score",
+    "avg_first_response_time",
+    "total_usage",
+    "avg_usage_duration",
+    "country_US",
+    "support_risk_score",
+    "avg_resolution_time"
+  ],
+  "clv_config": {
+    "gross_margin": 0.7,
+    "discount_rate": 0.1
+  },
+  "generated_at": "2026-03-08 10:02:02"
+}

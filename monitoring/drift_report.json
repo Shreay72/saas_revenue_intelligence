@@ -1,0 +1,36 @@
+{
+  "run_timestamp": "2026-03-08T08:58:24.273134",
+  "overall_status": "OK",
+  "baseline_accounts": 500,
+  "current_accounts": 500,
+  "features_checked": 4,
+  "n_critical": 0,
+  "n_warning": 0,
+  "n_ok": 4,
+  "feature_results": {
+    "total_mrr": {
+      "baseline_mean": 22677.494,
+      "current_mean": 22677.494,
+      "shift": 0.0,
+      "status": "OK"
+    },
+    "churn_probability": {
+      "baseline_mean": 0.7021,
+      "current_mean": 0.7021,
+      "shift": 0.0,
+      "status": "OK"
+    },
+    "health_score": {
+      "baseline_mean": 62.1122,
+      "current_mean": 62.1122,
+      "shift": 0.0,
+      "status": "OK"
+    },
+    "revenue_at_risk": {
+      "baseline_mean": 15936.7045,
+      "current_mean": 15936.7045,
+      "shift": 0.0,
+      "status": "OK"
+    }
+  }
+}

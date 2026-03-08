@@ -1,0 +1,53 @@
+{
+  "model_name": "MRR Prediction Model",
+  "model_type": "GradientBoosting",
+  "train_date": "2026-03-08T08:47:22.938326",
+  "feature_cols": [
+    "seats",
+    "tenure_months",
+    "engagement_score",
+    "support_risk_score",
+    "auto_renew_ratio",
+    "upgrade_count",
+    "downgrade_count",
+    "ticket_count",
+    "avg_satisfaction_score",
+    "error_rate",
+    "revenue_per_seat",
+    "unique_features_used",
+    "total_usage",
+    "escalation_ratio",
+    "engagement_state",
+    "revenue_change_signal",
+    "support_pressure_signal"
+  ],
+  "mrr_metrics": {
+    "model_name": "GradientBoosting",
+    "r2_mean": 0.9182,
+    "r2_std": 0.0413,
+    "mae_mean": 2744.88,
+    "mae_std": 342.25,
+    "stability_r2_mean": 0.9189,
+    "stability_r2_std": 0.0142,
+    "stability_flag": "\u2705 STABLE",
+    "feature_count": 17
+  },
+  "clv_metrics": {
+    "method": "deterministic_formula",
+    "formula": "CLV = (MRR \u00d7 gross_margin) / (monthly_churn + monthly_discount)",
+    "gross_margin": 0.7,
+    "discount_rate": 0.1,
+    "clv_min": 1462.61,
+    "clv_max": 9755799.34,
+    "clv_mean": 577388.68,
+    "clv_median": 215250.12
+  },
+  "version": "v3",
+  "changes": [
+    "Removed total_arr from features to avoid trivial leakage",
+    "Attached churn_probability from churn model (no hard-coded mapping)",
+    "Renamed pseudo-trend features to *_state / *_signal",
+    "Revenue at risk uses expected loss formula",
+    "Stability check across 3 seeds + confidence intervals"
+  ]
+}

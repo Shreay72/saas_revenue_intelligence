@@ -1,0 +1,86 @@
+# =============================================================================
+# SaaS Revenue Intelligence — Docker Compose
+# Services: api | dashboard | cron
+# Usage: docker-compose up --build
+# =============================================================================
+
+version: "3.9"
+
+services:
+
+  # ── API ────────────────────────────────────────────────────────────────────
+  api:
+    build:
+      context: .
+      target: api
+    image: saas-intelligence-api:latest
+    container_name: saas_api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./logs:/app/logs
+      - ./monitoring:/app/monitoring
+      - ./config:/app/config
+    environment:
+      - PYTHONUNBUFFERED=1
+      - PYTHONPATH=/app
+    restart: unless-stopped
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8000/health" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  # ── Dashboard ──────────────────────────────────────────────────────────────
+  dashboard:
+    build:
+      context: .
+      target: dashboard
+    image: saas-intelligence-dashboard:latest
+    container_name: saas_dashboard
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data
+      - ./config:/app/config
+    environment:
+      - PYTHONUNBUFFERED=1
+      - PYTHONPATH=/app
+      - API_URL=http://api:8000
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # ── Monitoring Cron ────────────────────────────────────────────────────────
+  cron:
+    build:
+      context: .
+      target: cron
+    image: saas-intelligence-cron:latest
+    container_name: saas_cron
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./logs:/app/logs
+      - ./monitoring:/app/monitoring
+      - ./reports:/app/reports
+      - ./config:/app/config
+    environment:
+      - PYTHONUNBUFFERED=1
+      - PYTHONPATH=/app
+    depends_on:
+      - api
+    restart: "no"
+    profiles:
+      - monitoring
+
+volumes:
+  data:
+  models:
+  logs:
+  monitoring:
+  reports:

@@ -1,0 +1,72 @@
+# =============================================================================
+# SaaS Revenue Intelligence — Model Configuration
+# Week 3 + Week 4 settings
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Churn Model
+# -----------------------------------------------------------------------------
+churn_model:
+  test_size: 0.2
+  random_state: 42
+  models:
+    - logistic_regression
+    - random_forest
+    - xgboost
+  cv_folds: 5
+  scoring: roc_auc
+
+# -----------------------------------------------------------------------------
+# Revenue Model
+# -----------------------------------------------------------------------------
+revenue_model:
+  test_size: 0.2
+  random_state: 42
+  cv_folds: 5
+  clv:
+    gross_margin: 0.70
+    discount_rate: 0.10
+
+# -----------------------------------------------------------------------------
+# Risk Engine  (Week 4)
+# -----------------------------------------------------------------------------
+risk_engine:
+  weights:
+    churn_probability: 0.40
+    revenue_at_risk:   0.35
+    health_score:      0.25
+
+  normalization:
+    revenue_percentile_cap:      95   # p95 used as ceiling (outlier-safe)
+    revenue_percentile_override: 90   # top 10% revenue always CRITICAL
+
+  tier_thresholds:
+    critical: 75
+    high:     60
+    medium:   35
+
+  velocity_thresholds:
+    accelerating:  15    # risk_score increase >= +15 → ACCELERATING
+    improving:    -15    # risk_score decrease <= -15 → IMPROVING
+
+# -----------------------------------------------------------------------------
+# Intervention Success Rates  (Week 4)
+# -----------------------------------------------------------------------------
+intervention_success_rates:
+  VP_ESCALATION:   0.50
+  EXECUTIVE_QBR:   0.30
+  TAM_ASSIGNMENT:  0.40
+  UPSELL:          0.20
+  WINBACK:         0.25
+  MONITOR:         0.05
+
+# -----------------------------------------------------------------------------
+# Intervention Confidence Levels  (Week 4)
+# -----------------------------------------------------------------------------
+intervention_confidence:
+  VP_ESCALATION:   HIGH
+  EXECUTIVE_QBR:   HIGH
+  TAM_ASSIGNMENT:  HIGH
+  UPSELL:          MEDIUM
+  WINBACK:         MEDIUM
+  MONITOR:         LOW

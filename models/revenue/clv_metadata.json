@@ -1,0 +1,23 @@
+{
+  "model_name": "CLV Model (Deterministic)",
+  "model_type": "deterministic_formula",
+  "formula": "CLV = (MRR * gross_margin) / (monthly_churn + monthly_discount)",
+  "train_date": "2026-03-08T08:59:42.721933",
+  "feature_cols": [
+    "total_mrr",
+    "churn_probability"
+  ],
+  "gross_margin": 0.7,
+  "discount_rate": 0.1,
+  "metrics": {
+    "method": "deterministic_formula",
+    "formula": "CLV = (MRR \u00d7 gross_margin) / (monthly_churn + monthly_discount)",
+    "gross_margin": 0.7,
+    "discount_rate": 0.1,
+    "clv_min": 1462.61,
+    "clv_max": 9755799.34,
+    "clv_mean": 577388.68,
+    "clv_median": 215250.12
+  },
+  "version": "v2"
+}
